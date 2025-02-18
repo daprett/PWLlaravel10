@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ItemController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function () { // Menampilkan halaman 'welcome' saat pengguna mengakses root URL 
     return view('welcome');
 });
+
+Route::resource('items', ItemController::class);// Menyediakan rute restful untuk resource 'items, dengan itemcontroller
