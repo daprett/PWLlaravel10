@@ -8,6 +8,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\WelcomeController;
+use Faker\Guesser\Name;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,6 +79,8 @@ route::resource('photos',PhotoController::class)->only([
     'index','show'
 ]);
 
-route::resource('photos',PhotoController::class)->Exception([
+route::resource('photos',PhotoController::class)->Except([
     'create','store','update','destroy'
 ]);
+
+route::get('/greeting', [WelcomeController::class,'greeting']);
